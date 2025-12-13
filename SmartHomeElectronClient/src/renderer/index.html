@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Dashboard - Desktop Client</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-home"></i>
+                    <h1>Smart Home Dashboard</h1>
+                </div>
+                <div class="header-actions">
+                    <div class="connection-status" id="connectionStatus">
+                        <i class="fas fa-circle"></i>
+                        <span>Connecting...</span>
+                    </div>
+                    <button class="btn btn-primary" id="refreshBtn">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh
+                    </button>
+                </div>
+            </div>
+        </header>
+
+
+        <nav class="sidebar">
+            <ul class="nav-list">
+                <li class="nav-item active" data-view="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-view="devices">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Devices</span>
+                </li>
+                <li class="nav-item" data-view="ai">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Insights</span>
+                </li>
+                <li class="nav-item" data-view="status">
+                    <i class="fas fa-envelope"></i>
+                    <span>Status Report</span>
+                </li>
+            </ul>
+        </nav>
+
+
+        <main class="main-content">
+
+            <div class="view active" id="dashboardView">
+                <h2><i class="fas fa-tachometer-alt"></i> System Dashboard</h2>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-devices"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalDevicesCount">-</h3>
+                            <p>Total Devices</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon active">
+                            <i class="fas fa-power-off"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="activeDevicesCount">-</h3>
+                            <p>Active Devices</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon temperature">
+                            <i class="fas fa-thermometer-half"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="currentTemperature">-</h3>
+                            <p>Current Temperature</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon users">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="usersCount">-</h3>
+                            <p>Registered Users</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content">
+                    <div class="recent-activity">
+                        <h3><i class="fas fa-clock"></i> Recent Activity</h3>
+                        <div id="recentActivity" class="activity-list">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="view" id="devicesView">
+                <h2><i class="fas fa-lightbulb"></i> Device Management</h2>
+
+                <div class="filters">
+                    <label>
+                        <input type="radio" name="deviceFilter" value="all" checked> All Devices
+                    </label>
+                    <label>
+                        <input type="radio" name="deviceFilter" value="active"> Active Only
+                    </label>
+                </div>
+
+                <div class="device-grid" id="deviceGrid">
+
+                </div>
+            </div>
+
+
+            <div class="view" id="aiView">
+                <h2><i class="fas fa-robot"></i> AI Insights</h2>
+
+                <div class="ai-section">
+                    <button class="btn btn-primary" id="getAIBtn">
+                        <i class="fas fa-brain"></i>
+                        Generate Smart Recommendations
+                    </button>
+
+                    <div class="ai-response" id="aiResponse" style="display: none;">
+                        <h3>AI Recommendations</h3>
+                        <div class="ai-content" id="aiContent">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="view" id="statusView">
+                <h2><i class="fas fa-envelope"></i> Status Report</h2>
+
+                <div class="email-section">
+                    <p>Generate and send a comprehensive status report via email simulation.</p>
+
+                    <form class="email-form" id="emailForm">
+                        <label>
+                            Recipient Email:
+                            <input type="email" id="recipientEmail" value="admin@smarthome.local" required>
+                        </label>
+
+                        <label>
+                            Include Details:
+                            <textarea id="emailDetails" placeholder="Additional details to include in the report..."></textarea>
+                        </label>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Status Report (Simulation)
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

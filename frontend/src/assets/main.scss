@@ -1,0 +1,13 @@
+@use 'vuetify/settings' with (
+  $reset: true,
+);
+
+@import 'vuetify/styles';
+@import '@mdi/font/css/materialdesignicons.css';
+
+body {
+  font-family: 'Inter', 'Roboto', sans-serif;
+  margin: 0;
+  background-color: #121212;
+}
+
