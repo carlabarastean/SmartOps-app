@@ -1,7 +1,10 @@
 # SmartOps
 
 ![platform](https://img.shields.io/badge/platform-Web%20App%20%2B%20Desktop-blue)
-![stack](https://img.shields.io/badge/stack-Vue%203%2FSpring%20Boot%2FMySQL-purple)
+![frontend](https://img.shields.io/badge/frontend-Vue%203%20%2B%20TypeScript-42b883)
+![backend](https://img.shields.io/badge/backend-Spring%20Boot%20%2B%20Java-brown)
+![database](https://img.shields.io/badge/database-MySQL-orange)
+![desktop](https://img.shields.io/badge/desktop-Electron-47848f)
 ![ai](https://img.shields.io/badge/AI-Ollama%20Powered-green)
 
 **SmartOps** is a full-stack Smart Home IoT dashboard that allows users to organize rooms, manage smart devices, monitor temperature data, and receive AI-powered automation recommendations. The application combines a modern Vue.js interface with a Spring Boot backend, MySQL database, and an optional Electron desktop client.
